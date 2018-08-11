@@ -1,6 +1,7 @@
 package net.raginggeek.helloandroidsafari;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity {
     public static final String TAG = MainActivity.class.getSimpleName();
+    public static final String MAIN_ACTIVITY_EXTRA = "user";
     private TextView textView;
     private EditText editText;
 
@@ -60,6 +62,10 @@ public class MainActivity extends Activity {
 
     public void sayHello(View view) {
         String name = editText.getText().toString();
-        textView.setText(String.format("Hello, %s!", name));
+        //textView.setText(String.format("Hello, %s!", name));
+        Intent intent = new Intent(this, WelcomeActivity.class);
+        intent.putExtra(MAIN_ACTIVITY_EXTRA, name);
+        startActivity(intent);
+
     }
 }
