@@ -5,4 +5,5 @@
     <string name="name_entry">Please enter your name</string>
     <string name="hello_button_label">Say Hello</string>
     <string name="hi_button_label">Say Hi</string>
+    <string name="greeting">Hello, %1$s!</string>
 </resources>

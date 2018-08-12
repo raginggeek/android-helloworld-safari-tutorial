@@ -62,7 +62,6 @@ public class MainActivity extends Activity {
 
     public void sayHello(View view) {
         String name = editText.getText().toString();
-        //textView.setText(String.format("Hello, %s!", name));
         Intent intent = new Intent(this, WelcomeActivity.class);
         intent.putExtra(MAIN_ACTIVITY_EXTRA, name);
         startActivity(intent);
