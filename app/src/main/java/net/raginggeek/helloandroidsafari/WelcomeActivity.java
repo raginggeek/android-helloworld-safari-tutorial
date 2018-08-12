@@ -1,6 +1,7 @@
 package net.raginggeek.helloandroidsafari;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -45,7 +46,14 @@ public class WelcomeActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d("TAG", "Item at " + position + "clicked");
-                greetingText.setText(String.format(getString(R.string.greeting), names.get(position)));
+                String name = parent.getItemAtPosition(position).toString();
+                DialogFragment fragment = new NameFragment();
+                greetingText.setText(
+                        String.format(getString(R.string.greeting), name));
+                Bundle arguments = new Bundle();
+                arguments.putString("name", name);
+                fragment.setArguments(arguments);
+                fragment.show(getFragmentManager(), "nothing");
             }
         });
 
